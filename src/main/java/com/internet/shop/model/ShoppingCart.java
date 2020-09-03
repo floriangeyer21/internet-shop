@@ -8,8 +8,7 @@ public class ShoppingCart {
     private List<Product> products;
     private Long userId;
 
-    public ShoppingCart(List<Product> products, Long userId) {
-        this.products = products;
+    public ShoppingCart(Long userId) {
         this.userId = userId;
         products = new ArrayList<>();
     }
