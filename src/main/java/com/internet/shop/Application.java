@@ -22,7 +22,7 @@ public class Application {
         productService.deleteById(iphone11.getId());
         System.out.println(productService.getAll());
         Product newIphone = new Product("Iphone 12",1800);
-        newIphone.setId(3L);
+        newIphone.setId(iphoneX.getId());
         productService.update(newIphone);
         System.out.println(productService.getAll());
         System.out.println(productService.getById(iphone10.getId()));
