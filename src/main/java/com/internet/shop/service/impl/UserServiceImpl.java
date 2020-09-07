@@ -3,7 +3,6 @@ package com.internet.shop.service.impl;
 import com.internet.shop.dao.UserDao;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
-import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.model.User;
 import com.internet.shop.service.ShoppingCartService;
 import com.internet.shop.service.UserService;
@@ -19,8 +18,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(User user) {
         userDao.create(user);
-        ShoppingCart shoppingCart = new ShoppingCart(user.getId());
-        shoppingCartService.create(shoppingCart);
         return user;
     }
 
