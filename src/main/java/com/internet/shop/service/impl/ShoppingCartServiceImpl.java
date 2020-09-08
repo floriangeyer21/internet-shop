@@ -32,17 +32,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public boolean deleteProduct(ShoppingCart shoppingCart, Product product) {
         return shoppingCartDao.getById(shoppingCart.getId())
-                .get()
-                .getProducts()
-                .remove(product);
+                .get().getProducts().remove(product);
     }
 
     @Override
     public void clear(ShoppingCart shoppingCart) {
         shoppingCartDao.getById(shoppingCart.getId())
-                .get()
-                .getProducts()
-                .clear();
+                .get().getProducts().clear();
     }
 
     @Override
