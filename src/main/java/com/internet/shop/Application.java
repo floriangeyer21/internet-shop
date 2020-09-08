@@ -38,7 +38,7 @@ public class Application {
         shoppingCartService.create(secondUserCart);
 
         System.out.println(productService.getAll());
-        productService.deleteById(iphone11.getId());
+        productService.delete(iphone11.getId());
         System.out.println(productService.getAll());
         Product iphone12 = new Product("Iphone 12",1800);
         iphone12.setId(iphoneX.getId());
@@ -55,9 +55,9 @@ public class Application {
         System.out.println();
 
         System.out.println("Adding 3 products to firstUser cart:");
-        shoppingCartService.addProduct(firstUserCart, productService.getById(iphone10.getId()));
-        shoppingCartService.addProduct(firstUserCart, productService.getById(iphone11.getId()));
-        shoppingCartService.addProduct(firstUserCart, productService.getById(iphoneX.getId()));
+        shoppingCartService.update(firstUserCart, productService.getById(iphone10.getId()));
+        shoppingCartService.update(firstUserCart, productService.getById(iphone11.getId()));
+        shoppingCartService.update(firstUserCart, productService.getById(iphoneX.getId()));
         firstUserCart.getProducts().forEach(System.out::println);
         System.out.println();
 
@@ -72,9 +72,9 @@ public class Application {
         System.out.println();
 
         System.out.println("Adding more order to firstUserCart and secondUserCart");
-        shoppingCartService.addProduct(firstUserCart, productService.getById(iphoneX.getId()));
+        shoppingCartService.update(firstUserCart, productService.getById(iphoneX.getId()));
         orderService.completeOrder(firstUserCart);
-        shoppingCartService.addProduct(secondUserCart, productService.getById(iphone10.getId()));
+        shoppingCartService.update(secondUserCart, productService.getById(iphone10.getId()));
         orderService.completeOrder(secondUserCart);
         System.out.println("First_user's orders:");
         System.out.println(orderService.getUserOrders(firstUser.getId()));

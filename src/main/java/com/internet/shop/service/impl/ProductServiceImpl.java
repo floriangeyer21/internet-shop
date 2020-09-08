@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean deleteById(Long productId) {
-        return productDao.deleteById(productId);
+    public boolean delete(Long productId) {
+        return productDao.delete(productId);
     }
 
     @Override
