@@ -5,7 +5,9 @@ import com.internet.shop.model.ShoppingCart;
 
 public interface ShoppingCartService extends GenericService<ShoppingCart, Long> {
 
-    ShoppingCart update(ShoppingCart shoppingCart, Product product);
+    ShoppingCart addProduct(ShoppingCart shoppingCart, Product product);
+
+    ShoppingCart getByUserId(ShoppingCart shoppingCart);
 
     boolean deleteProduct(ShoppingCart shoppingCart, Product product);
 
