@@ -38,7 +38,7 @@ public class Application {
         shoppingCartService.create(secondUserCart);
 
         System.out.println(productService.getAll());
-        productService.deleteById(iphone11.getId());
+        productService.delete(iphone11.getId());
         System.out.println(productService.getAll());
         Product iphone12 = new Product("Iphone 12",1800);
         iphone12.setId(iphoneX.getId());
