@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>users</servlet-name>
-        <servlet-class>com.internet.shop.controllers.user.UsersController</servlet-class>
+        <servlet-class>com.internet.shop.controllers.user.GetAllUsersController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>injectData</servlet-name>
