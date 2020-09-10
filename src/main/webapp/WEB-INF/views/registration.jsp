@@ -18,7 +18,7 @@
 <body>
 <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
 <h1 class="font">Hello! Please provide your user details</h1>
-<h4 style="color:red" class="font : font1">${message}</h4>
+<h4 style="color:red" class="font : font1">${name} ${login} ${message}</h4>
 
 <form method="post" action="${pageContext.request.contextPath}/registration">
     <h1 class="font">Register</h1>
