@@ -18,7 +18,7 @@
 <body>
 <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
 <h1 class="font">Hello! Please provide your user details</h1>
-<h4 style="color:red">${message}</h4>
+<h4 style="color:red" class="font : font1">${message}</h4>
 
 <form method="post" action="${pageContext.request.contextPath}/registration">
     <h1 class="font">Register</h1>
@@ -26,7 +26,7 @@
         <p>Please fill in this form to create an account.</p>
         <hr>
         <label for="name"><b>Name</b></label>
-        <input class="orange-btn" type="text" placeholder="Enter name" name="name" id="name" required>
+        <input type="text" placeholder="Enter name" name="name" id="name" required>
 
         <label for="login"><b>Login</b></label>
         <input type="text" placeholder="Enter login" name="login" id="login" required>

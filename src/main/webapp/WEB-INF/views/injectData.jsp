@@ -16,7 +16,7 @@
 </head>
 <body>
 <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
-<h1 class="font">Your mock data waa added to DB</h1>
+<h1 class="font">Your mock data was added to DB</h1>
 <div class="font : font1">
     <a href="${pageContext.request.contextPath}/">To main page</a>
 </div>
