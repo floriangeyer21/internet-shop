@@ -4,6 +4,7 @@ import com.internet.shop.dao.OrderDao;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
 import com.internet.shop.model.Order;
+import com.internet.shop.model.Product;
 import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.service.OrderService;
 import com.internet.shop.service.ShoppingCartService;
@@ -19,6 +20,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order completeOrder(ShoppingCart shoppingCart) {
         Order order = new Order(shoppingCart.getUserId(), List.copyOf(shoppingCart.getProducts()));
+        Double price = (Double) List.copyOf(shoppingCart.getProducts()).stream()
+                .map(Product::getPrice)
+                .reduce(Double::sum)
+                .get();
+        order.setPrice(price);
         shoppingCartService.clear(shoppingCart);
         return orderDao.create(order);
     }

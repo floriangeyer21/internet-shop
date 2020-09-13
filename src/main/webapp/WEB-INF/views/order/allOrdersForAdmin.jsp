@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All products</title>
+    <title>User orders</title>
+    <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
     <style>
         .font {
             color: #00CED1;
@@ -26,28 +27,31 @@
     </style>
 </head>
 <body class="body1">
-<link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
-<h1 class="font">All products</h1>
+<h1 class="font">User orders</h1>
 <table class="table_dark">
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>User ID</th>
         <th>Price</th>
-        <th>Buy</th>
+        <th>Detail</th>
+        <th>Delete</th>
     </tr>
-    <c:forEach var="product" items="${products}">
+    <c:forEach var="order" items="${orders}">
         <tr>
             <td>
-                <c:out value="${product.id}"/>
+                <c:out value="${order.id}"/>
             </td>
             <td>
-                <c:out value="${product.name}"/>
+                <c:out value="${order.userId}"/>
             </td>
             <td>
-                <c:out value="${product.price}"/>
+                <c:out value="${order.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/shoppingCart/products/add?id=${product.id}">Buy</a>
+                <a href="${pageContext.request.contextPath}/order/getDetail">Detail</a>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/order/delete?id=${order.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>

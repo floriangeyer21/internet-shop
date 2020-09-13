@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All products</title>
+    <title>All products for admin</title>
     <style>
         .font {
             color: #00CED1;
@@ -12,6 +12,10 @@
         }
         .font1 {
             font-size: 120%;
+        }
+        .test{
+            width:200px;
+            margin: auto;
         }
         .body1 {
             opacity: inherit;
@@ -27,13 +31,13 @@
 </head>
 <body class="body1">
 <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
-<h1 class="font">All products</h1>
+<h1 class="font">All products(Admins)</h1>
 <table class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Buy</th>
+        <th>Delete</th>
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
@@ -47,12 +51,15 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/shoppingCart/products/add?id=${product.id}">Buy</a>
+                <a href="${pageContext.request.contextPath}/product/delete?id=${product.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
-
+<h3><p></p></h3>
+<form action="${pageContext.request.contextPath}/product/add">
+    <button type="submit" class="test">Add product</button>
+</form>
 <div class="font : font1">
     <a href="${pageContext.request.contextPath}/">To main page</a>
 </div>

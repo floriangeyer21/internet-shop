@@ -1,8 +1,9 @@
-package com.internet.shop.controllers.user;
+package com.internet.shop.controllers.order;
 
 import com.internet.shop.lib.Injector;
+import com.internet.shop.model.ShoppingCart;
+import com.internet.shop.service.OrderService;
 import com.internet.shop.service.ShoppingCartService;
-import com.internet.shop.service.UserService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,22 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/users/delete")
-public class DeleteUsersController extends HttpServlet {
+@WebServlet("/order/create")
+public class CreateOrderController extends HttpServlet {
+    private static final Long USER_ID = 1L;
     private static final Injector injector = Injector.getInstance("com.internet.shop");
-    private final UserService userService =
-            (UserService) injector.getInstance(UserService.class);
+    private OrderService orderService =
+            (OrderService) injector.getInstance(OrderService.class);
     private final ShoppingCartService shoppingCartService =
             (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String userId = req.getParameter("id");
-        Long id = Long.valueOf(userId);
-        /* ShoppingCart shoppingCart = shoppingCartService.getByUserId(id);
-        shoppingCartService.delete(shoppingCart.getId());*/
-        userService.delete(id);
-        resp.sendRedirect(req.getContextPath() + "/users/all");
+        /* String id = req.getParameter("id");
+        Long userId = Long.valueOf(id);*/
+        ShoppingCart shoppingCart = shoppingCartService.getByUserId(USER_ID);
+        orderService.completeOrder(shoppingCart);
+        resp.sendRedirect(req.getContextPath() + "/orders/all");
     }
 }
