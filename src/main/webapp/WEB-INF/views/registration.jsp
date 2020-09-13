@@ -10,6 +10,7 @@
             font-family: Arial, Verdana, sans-serif;
             text-align: center;
         }
+
         .font1 {
             font-size: 120%;
         }
