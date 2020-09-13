@@ -16,6 +16,7 @@
         a:focus {
             background-color: red;
         }
+
         .body1 {
             background: url(${pageContext.request.contextPath}/resources/unnamed.jpg) no-repeat;-moz-background-size: 100%;
             -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
