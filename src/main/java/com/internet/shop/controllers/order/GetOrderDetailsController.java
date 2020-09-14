@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/orders/info")
 public class GetOrderDetailsController extends HttpServlet {
-    private static final Long USER_ID = 1L;
+    private static final Long ORDER_ID = 1L;
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private OrderService orderService =
             (OrderService) injector.getInstance(OrderService.class);
@@ -24,7 +24,7 @@ public class GetOrderDetailsController extends HttpServlet {
             throws ServletException, IOException {
         String id = req.getParameter("id");
         Long ordersId = Long.valueOf(id);
-        Order order = orderService.getById(USER_ID);
+        Order order = orderService.getById(ORDER_ID);
         List<Product> products = order.getProducts();
         req.setAttribute("products", products);
         req.getRequestDispatcher("/WEB-INF/views/order/details.jsp").forward(req, resp);
