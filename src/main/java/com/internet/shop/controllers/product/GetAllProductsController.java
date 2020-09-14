@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/product/all-for-admin")
-public class GetAllProductsForAdminController extends HttpServlet {
+@WebServlet("/product/all")
+public class GetAllProductsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private final ProductService productService =
             (ProductService) injector.getInstance(ProductService.class);
@@ -22,6 +22,6 @@ public class GetAllProductsForAdminController extends HttpServlet {
             throws ServletException, IOException {
         List<Product> products = productService.getAll();
         req.setAttribute("products", products);
-        req.getRequestDispatcher("/WEB-INF/views/product/all-for-admin.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/product/all.jsp").forward(req, resp);
     }
 }

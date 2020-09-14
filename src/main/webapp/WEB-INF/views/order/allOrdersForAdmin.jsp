@@ -32,7 +32,6 @@
     <tr>
         <th>ID</th>
         <th>User ID</th>
-        <th>Price</th>
         <th>Detail</th>
         <th>Delete</th>
     </tr>
@@ -45,13 +44,10 @@
                 <c:out value="${order.userId}"/>
             </td>
             <td>
-                <c:out value="${order.price}"/>
+                <a href="${pageContext.request.contextPath}/orders/info">Detail</a>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/order/getDetail">Detail</a>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/order/delete?id=${order.id}">Delete</a>
+                <a href="${pageContext.request.contextPath}/orders/delete?id=${order.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>

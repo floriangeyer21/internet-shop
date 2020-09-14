@@ -31,9 +31,7 @@
 <table class="table_dark">
     <tr>
         <th>ID</th>
-        <th>Price</th>
         <th>Detail</th>
-        <th>Canceling</th>
     </tr>
     <c:forEach var="order" items="${orders}">
         <tr>
@@ -41,13 +39,7 @@
                 <c:out value="${order.id}"/>
             </td>
             <td>
-                <c:out value="${order.price}"/>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/order/getDetail">Detail</a>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/order/canceling?id=${order.id}">Canceling</a>
+                <a href="${pageContext.request.contextPath}/orders/info">Detail</a>
             </td>
         </tr>
     </c:forEach>
