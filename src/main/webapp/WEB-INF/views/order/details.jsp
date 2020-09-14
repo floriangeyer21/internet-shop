@@ -32,6 +32,7 @@
     <tr>
         <th>ID</th>
         <th>Product</th>
+        <th>Price</th>
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
@@ -40,6 +41,9 @@
             </td>
             <td>
                 <c:out value="${product.name}"/>
+            </td>
+            <td>
+                <c:out value="${product.price}"/>
             </td>
         </tr>
     </c:forEach>
