@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/orders/delete")
 public class DeleteOrderController extends HttpServlet {
-    private static final Long ORDER_ID = 1L;
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private OrderService orderService =
             (OrderService) injector.getInstance(OrderService.class);
@@ -20,8 +19,8 @@ public class DeleteOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String id = req.getParameter("id");
-        Long userId = Long.valueOf(id);
-        orderService.delete(ORDER_ID);
+        Long orderId = Long.valueOf(id);
+        orderService.delete(orderId);
         resp.sendRedirect(req.getContextPath() + "/order/all-for-admin");
     }
 }

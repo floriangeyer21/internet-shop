@@ -44,7 +44,7 @@
                 <c:out value="${order.userId}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/orders/info">Detail</a>
+                <a href="${pageContext.request.contextPath}/orders/info?id=${order.id}">Detail</a>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/orders/delete?id=${order.id}">Delete</a>

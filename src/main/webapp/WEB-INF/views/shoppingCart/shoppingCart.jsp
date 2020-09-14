@@ -57,7 +57,7 @@
     </c:forEach>
 </table>
 <h3><p></p></h3>
-<form action="${pageContext.request.contextPath}/order/create">
+<form action="${pageContext.request.contextPath}/orders/create">
     <button type="submit" class="test">Create order</button>
 </form>
 <div class="font : font1">
