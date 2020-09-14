@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All products</title>
+    <title>Order details</title>
+    <link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
     <style>
         .font {
             color: #00CED1;
@@ -14,26 +15,24 @@
             font-size: 120%;
         }
         .body1 {
-            opacity: inherit;
-            background: url(${pageContext.request.contextPath}/resources/unnamed.jpg) no-repeat;-moz-background-size: 100%; /* Firefox 3.6+ */
-            -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-            -o-background-size: 100%; /* Opera 9.6+ */
-            background-size: cover; /* Современные браузеры */
-        }
+               opacity: inherit;
+               background: url(${pageContext.request.contextPath}/resources/unnamed.jpg) no-repeat;-moz-background-size: 100%; /* Firefox 3.6+ */
+               -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+               -o-background-size: 100%; /* Opera 9.6+ */
+               background-size: cover; /* Современные браузеры */
+           }
         a:focus {
             background-color: red;
         }
     </style>
 </head>
 <body class="body1">
-<link href="${pageContext.request.contextPath}/resources/style4.css" rel="stylesheet" type="text/css">
-<h1 class="font">All products</h1>
+<h1 class="font">Order details</h1>
 <table class="table_dark">
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Product</th>
         <th>Price</th>
-        <th>Buy</th>
     </tr>
     <c:forEach var="product" items="${products}">
         <tr>
@@ -45,9 +44,6 @@
             </td>
             <td>
                 <c:out value="${product.price}"/>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/shoppingCart/products/add?id=${product.id}">Buy</a>
             </td>
         </tr>
     </c:forEach>
