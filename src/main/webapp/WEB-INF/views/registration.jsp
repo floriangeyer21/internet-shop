@@ -16,7 +16,6 @@
         a:focus {
             background-color: red;
         }
-
         .body1 {
             background: url(${pageContext.request.contextPath}/resources/unnamed.jpg) no-repeat;-moz-background-size: 100%;
             -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
@@ -37,23 +36,18 @@
         <hr>
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="Enter name" name="name" id="name" required="required" value=${name}>
-
         <label for="login"><b>Login</b></label>
         <input type="text" placeholder="Enter login" name="login" id="login" required="required" value=${login}>
         <hr>
-
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
         <hr>
-
         <button type="submit" class="/registration">Submit</button>
     </div>
 </form>
-
-
 <div class="font">
 <a href="${pageContext.request.contextPath}/">To main page</a>
 </div>
