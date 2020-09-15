@@ -41,4 +41,8 @@ public class LoginController extends HttpServlet {
         }
         resp.sendRedirect(req.getContextPath() + "/");
     }
+
+    public static String getUserId() {
+        return USER_ID;
+    }
 }

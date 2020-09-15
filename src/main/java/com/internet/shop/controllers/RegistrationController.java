@@ -33,9 +33,9 @@ public class RegistrationController extends HttpServlet {
         String repeatPwd = req.getParameter("psw-repeat");
         if (password.equals(repeatPwd)) {
             User user = new User(name, login, password);
+            userService.create(user);
             ShoppingCart shoppingCart = new ShoppingCart(user.getId());
             shoppingCartService.create(shoppingCart);
-            userService.create(user);
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("message", "Your password and repeat-password aren't the same.");

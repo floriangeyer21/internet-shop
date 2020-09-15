@@ -1,5 +1,6 @@
 package com.internet.shop.controllers.order;
 
+import com.internet.shop.controllers.LoginController;
 import com.internet.shop.lib.Injector;
 import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.service.OrderService;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/orders/create")
 public class CreateOrderController extends HttpServlet {
-    private static final Long USER_ID = 1L;
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private OrderService orderService =
             (OrderService) injector.getInstance(OrderService.class);
@@ -23,7 +23,8 @@ public class CreateOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ShoppingCart shoppingCart = shoppingCartService.getByUserId(USER_ID);
+        Long userId = (Long) req.getSession().getAttribute(LoginController.getUserId());
+        ShoppingCart shoppingCart = shoppingCartService.getByUserId(userId);
         orderService.completeOrder(shoppingCart);
         resp.sendRedirect(req.getContextPath() + "/orders/all");
     }

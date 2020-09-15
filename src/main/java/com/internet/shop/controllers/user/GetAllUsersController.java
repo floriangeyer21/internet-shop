@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class GetAllUsersController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("com.internet.shop");
-    private static final String USER_ID = "user_id";
     private final UserService userService =
             (UserService) injector.getInstance(UserService.class);
 
