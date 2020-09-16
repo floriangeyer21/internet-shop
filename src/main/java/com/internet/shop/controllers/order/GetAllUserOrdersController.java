@@ -22,7 +22,7 @@ public class GetAllUserOrdersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Long userId = (Long) req.getSession().getAttribute(LoginController.getUserId());
+        Long userId = (Long) req.getSession().getAttribute(LoginController.USER_ID);
         List<Order> orders = orderService.getUserOrders(userId);
         req.setAttribute("orders", orders);
         req.getRequestDispatcher("/WEB-INF/views/order/allUserOrders.jsp").forward(req, resp);
