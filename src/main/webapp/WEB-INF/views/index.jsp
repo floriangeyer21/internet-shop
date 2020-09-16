@@ -38,10 +38,11 @@
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/products/manage">All products for admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/orders">All user orders</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/orders">All orders for admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/shoppingCart/products/">Shopping cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/shoppingCart/products">Shopping cart</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/product/add">Add products</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/login">Sign in</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/registration">Create account</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/logout">Log out</a></li>
             </ul>
         </div>
 
