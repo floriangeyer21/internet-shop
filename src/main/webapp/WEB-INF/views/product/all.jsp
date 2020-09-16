@@ -52,7 +52,6 @@
         </tr>
     </c:forEach>
 </table>
-
 <div class="font : font1">
     <a href="${pageContext.request.contextPath}/">To main page</a>
 </div>
