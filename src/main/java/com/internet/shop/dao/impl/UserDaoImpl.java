@@ -41,4 +41,11 @@ public class UserDaoImpl implements UserDao {
     public boolean delete(Long id) {
         return getAll().removeIf(user -> user.getId().equals(id));
     }
+
+    @Override
+    public Optional<User> findByLogin(String login) {
+        return getAll().stream()
+                .filter(user -> user.getLogin().equals(login))
+                .findFirst();
+    }
 }
