@@ -30,6 +30,6 @@ public class DeleteProductFromShoppingCartController extends HttpServlet {
         long id = Long.parseLong(productId);
         Product product = productService.getById(id);
         shoppingCartService.deleteProduct(shoppingCart, product);
-        resp.sendRedirect(req.getContextPath() + "/shoppingCart/products/");
+        resp.sendRedirect(req.getContextPath() + "/shoppingCart/products");
     }
 }
