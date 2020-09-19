@@ -38,10 +38,8 @@ public class InjectDataController extends HttpServlet {
         userService.create(admin);
         ShoppingCart shoppingCart1 = new ShoppingCart(user1.getId());
         ShoppingCart shoppingCart2 = new ShoppingCart(user2.getId());
-        ShoppingCart shoppingCart3 = new ShoppingCart(admin.getId());
         shoppingCartService.create(shoppingCart1);
         shoppingCartService.create(shoppingCart2);
-        shoppingCartService.create(shoppingCart3);
         Product iphone10 = new Product("Iphone 10", 1_200);
         Product iphone11 = new Product("Iphone 11", 1_400);
         Product iphoneX = new Product("Iphone X", 1_600);
