@@ -32,7 +32,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return newProduct;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't create product", e);
+            throw new DataProcessingException("Can't create product with name "
+                    + product.getName(), e);
         }
     }
 
@@ -45,8 +46,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
             statement.setString(1, product.getName());
             statement.setDouble(2, product.getPrice());
             statement.setLong(3, product.getId());
-            int successfulUpdate = statement.executeUpdate();
-            if (successfulUpdate != 0) {
+            int changedRows = statement.executeUpdate();
+            if (changedRows != 0) {
                 return product;
             }
             throw new DataProcessingException("Updating product with id "
@@ -86,7 +87,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
                 productList.add(getProductFromResultSet(resultSet));
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Incorrect getAll query", e);
+            throw new DataProcessingException("Can't get all products", e);
         }
         return productList;
     }
