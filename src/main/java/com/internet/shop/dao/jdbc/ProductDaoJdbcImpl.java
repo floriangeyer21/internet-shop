@@ -49,9 +49,11 @@ public class ProductDaoJdbcImpl implements ProductDao {
             if (successfulUpdate != 0) {
                 return product;
             }
-            throw new SQLException();
+            throw new DataProcessingException("Updating product with id "
+                    + product.getId() + " is failed. ");
         } catch (SQLException e) {
-            throw new DataProcessingException("Can`t update product", e);
+            throw new DataProcessingException("Updating product with id "
+                    + product.getId() + " is failed. ", e);
         }
     }
 
@@ -68,7 +70,8 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return Optional.empty();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get product by id", e);
+            throw new DataProcessingException("Getting product by id "
+                    + productId + " failed. ", e);
         }
     }
 
@@ -80,10 +83,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery(query);
             while (resultSet.next()) {
-                long productId = resultSet.getLong("product_id");
-                Product product = getProductFromResultSet(resultSet);
-                product.setId(productId);
-                productList.add(product);
+                productList.add(getProductFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Incorrect getAll query", e);
@@ -101,7 +101,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             return statement.executeUpdate() == 1;
         } catch (SQLException e) {
             throw new DataProcessingException("Deleting product with id " + productId
-                    + " failed", e);
+                    + " failed. ", e);
         }
     }
 

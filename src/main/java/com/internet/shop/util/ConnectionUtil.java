@@ -15,12 +15,12 @@ public class ConnectionUtil {
     }
 
     public static Connection getConnection() {
-        Properties doProperties = new Properties();
-        doProperties.put("user", "test_admin");
-        doProperties.put("password", "12345");
+        Properties dbProperties = new Properties();
+        dbProperties.put("user", "test_admin");
+        dbProperties.put("password", "12345");
         String url = "jdbc:mysql://localhost:3306/internet_shop?serverTimeZone=UTC";
         try {
-            return DriverManager.getConnection(url, doProperties);
+            return DriverManager.getConnection(url, dbProperties);
         } catch (SQLException e) {
             throw new RuntimeException("Can't establish the connection to DB", e);
         }
