@@ -1,7 +1,6 @@
 package com.internet.shop.controllers;
 
 import com.internet.shop.lib.Injector;
-import com.internet.shop.model.Product;
 import com.internet.shop.model.Role;
 import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.model.User;
@@ -40,12 +39,6 @@ public class InjectDataController extends HttpServlet {
         ShoppingCart shoppingCart2 = new ShoppingCart(user2.getId());
         shoppingCartService.create(shoppingCart1);
         shoppingCartService.create(shoppingCart2);
-        Product iphone10 = new Product("Iphone 10", 1_200);
-        Product iphone11 = new Product("Iphone 11", 1_400);
-        Product iphoneX = new Product("Iphone X", 1_600);
-        productService.create(iphone10);
-        productService.create(iphone11);
-        productService.create(iphoneX);
         req.getRequestDispatcher("/WEB-INF/views/injectData.jsp").forward(req, resp);
     }
 }
