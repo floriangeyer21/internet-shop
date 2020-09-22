@@ -3,12 +3,12 @@ package com.internet.shop.dao.impl;
 import com.internet.shop.dao.ShoppingCartDao;
 import com.internet.shop.db.Storage;
 import com.internet.shop.lib.Dao;
+import com.internet.shop.model.Product;
 import com.internet.shop.model.ShoppingCart;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-@Dao
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
 
     @Override
@@ -40,6 +40,11 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     }
 
     @Override
+    public boolean clear(ShoppingCart shoppingCart) {
+        return false;
+    }
+
+    @Override
     public boolean delete(Long id) {
         return getAll().removeIf(o -> o.getId().equals(id));
     }
@@ -47,5 +52,10 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     @Override
     public List<ShoppingCart> getAll() {
         return Storage.shoppingCarts;
+    }
+
+    @Override
+    public boolean deleteProduct(Long cart_id, Product product) {
+        return false;
     }
 }
