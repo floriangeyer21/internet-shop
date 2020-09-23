@@ -126,24 +126,6 @@ public class ShoppingCartDaoJdbcImpl implements ShoppingCartDao {
         }
     }
 
-   /* private ShoppingCart bindingShopCartIdWithProduct(ShoppingCart shoppingCart) {
-        String query = "INSERT INTO shopping_carts_products (cart_id, product_id) VALUES (?, ?)";
-        Long cart_id = shoppingCart.getId();
-        for (Product product : shoppingCart.getProducts()) {
-            try (Connection connection = ConnectionUtil.getConnection()) {
-                PreparedStatement statement = connection
-                        .prepareStatement(query);
-                statement.setLong(1, cart_id);
-                statement.setLong(2, product.getId());
-                statement.executeUpdate();
-            } catch (SQLException e) {
-                throw new DataProcessingException("Insert to shopping_carts_products with cart_id "
-                        + shoppingCart.getId() + "is failed. ");
-            }
-        }
-        return shoppingCart;
-    }*/
-
     private ShoppingCart getShoppingCartFromResultSet(ResultSet resultSet) {
         try {
             Long cart_id = resultSet.getLong("cart_id");
