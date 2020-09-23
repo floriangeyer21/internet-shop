@@ -21,6 +21,11 @@ CREATE TABLE `internet_shop`.`products` (
  `deleted` BOOLEAN NOT NULL DEFAULT false,
  PRIMARY KEY (`role_id`));
 
+ INSERT INTO `roles`(role_name)
+VALUES ('ADMIN');
+INSERT INTO `roles`(role_name)
+VALUES ('USER');
+
  CREATE TABLE `internet_shop`.`shopping_carts` (
   `cart_id` BIGINT(11) NOT NULL AUTO_INCREMENT,
   `user_id` BIGINT(11) NOT NULL,
