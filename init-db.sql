@@ -34,8 +34,8 @@ VALUES ('USER');
  CONSTRAINT fk_userIDtoSPcart
     FOREIGN KEY (`user_id`)
     REFERENCES internet_shop.users(`user_id`)
-        ON UPDATE RESTART
-        ON DELETE RESTART
+        ON UPDATE RESTRICT
+        ON DELETE RESTRICT
  );
 
   CREATE TABLE `internet_shop`.`orders` (
@@ -68,6 +68,7 @@ VALUES ('USER');
 CREATE TABLE `internet_shop`.`shopping_carts_products`(
  `cart_id` BIGINT(11) NOT NULL,
   `product_id` BIGINT(11) NOT NULL,
+  `deleted` BOOLEAN NOT NULL DEFAULT false,
     CONSTRAINT fk_cartId
     FOREIGN KEY (`cart_id`)
     REFERENCES internet_shop.shopping_carts(`cart_id`)
