@@ -2,7 +2,6 @@ package com.internet.shop.dao.impl;
 
 import com.internet.shop.dao.ShoppingCartDao;
 import com.internet.shop.db.Storage;
-import com.internet.shop.lib.Dao;
 import com.internet.shop.model.Product;
 import com.internet.shop.model.ShoppingCart;
 import java.util.List;
@@ -55,7 +54,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     }
 
     @Override
-    public boolean deleteProduct(Long cart_id, Product product) {
+    public boolean deleteProduct(Long cartId, Product product) {
         return false;
     }
 }

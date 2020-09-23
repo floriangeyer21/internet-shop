@@ -3,13 +3,19 @@ package com.internet.shop.dao.jdbc;
 import com.internet.shop.dao.UserDao;
 import com.internet.shop.exceptions.DataProcessingException;
 import com.internet.shop.lib.Dao;
-import com.internet.shop.model.Product;
 import com.internet.shop.model.Role;
-import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.model.User;
 import com.internet.shop.util.ConnectionUtil;
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Dao
 public class UserDaoJdbcImpl implements UserDao {
@@ -153,10 +159,10 @@ public class UserDaoJdbcImpl implements UserDao {
 
     private Role getRoleFromResultSet(ResultSet resultSet) {
         try {
-            long role_id = resultSet.getLong("role_id");
-            String role_name = resultSet.getString("role_name");
-            Role role = new Role(Role.of(role_name).getRoleName());
-            role.setId(role_id);
+            long roleId = resultSet.getLong("role_id");
+            String roleName = resultSet.getString("role_name");
+            Role role = new Role(Role.of(roleName).getRoleName());
+            role.setId(roleId);
             return role;
         } catch (SQLException e) {
             throw new DataProcessingException("Can't get role from resultSet", e);
@@ -165,12 +171,12 @@ public class UserDaoJdbcImpl implements UserDao {
 
     private void addRolesToUser(User user) {
         String query = "INSERT INTO users_roles (user_id, role_id) VALUES (?, ?)";
-        Long user_id = user.getId();
+        Long userId = user.getId();
         for (Role role : user.getRoles()) {
             try (Connection connection = ConnectionUtil.getConnection()) {
                 PreparedStatement statement = connection
                         .prepareStatement(query);
-                statement.setLong(1, user_id);
+                statement.setLong(1, userId);
                 statement.setLong(2, getRoleIdByName(role.getRoleName()));
                 statement.executeUpdate();
             } catch (SQLException e) {
