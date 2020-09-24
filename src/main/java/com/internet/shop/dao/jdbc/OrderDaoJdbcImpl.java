@@ -63,7 +63,7 @@ public class OrderDaoJdbcImpl implements OrderDao {
                 + "WHERE order_id = ?";
         Long orderId = order.getId();
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query);) {
+                 PreparedStatement statement = connection.prepareStatement(query);) {
             statement.setLong(1, orderId);
             statement.executeUpdate();
             return addProductToOrderInDB(order, connection);
@@ -188,6 +188,6 @@ public class OrderDaoJdbcImpl implements OrderDao {
             throw new DataProcessingException("Getting product by id "
                     + productId + " failed. ", e);
         }
-       return new Product();
+        return new Product();
     }
 }
