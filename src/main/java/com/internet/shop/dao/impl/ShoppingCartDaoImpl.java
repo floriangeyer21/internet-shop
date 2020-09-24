@@ -39,11 +39,6 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     }
 
     @Override
-    public boolean clear(ShoppingCart shoppingCart) {
-        return false;
-    }
-
-    @Override
     public boolean delete(Long id) {
         return getAll().removeIf(o -> o.getId().equals(id));
     }
@@ -51,10 +46,5 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     @Override
     public List<ShoppingCart> getAll() {
         return Storage.shoppingCarts;
-    }
-
-    @Override
-    public boolean deleteProduct(Long cartId, Product product) {
-        return false;
     }
 }

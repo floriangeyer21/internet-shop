@@ -9,7 +9,7 @@ public interface ShoppingCartService extends GenericService<ShoppingCart, Long> 
 
     ShoppingCart getByUserId(Long userId);
 
-    boolean deleteProduct(ShoppingCart shoppingCart, Product product);
+    ShoppingCart deleteProduct(ShoppingCart shoppingCart, Product product);
 
-    void clear(ShoppingCart shoppingCart);
+    ShoppingCart clear(ShoppingCart shoppingCart);
 }
