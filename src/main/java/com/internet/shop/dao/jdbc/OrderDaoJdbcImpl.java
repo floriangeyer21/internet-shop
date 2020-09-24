@@ -66,6 +66,7 @@ public class OrderDaoJdbcImpl implements OrderDao {
                  PreparedStatement statement = connection.prepareStatement(query);) {
             statement.setLong(1, orderId);
             statement.executeUpdate();
+            statement.close();
             return addProductToOrderInDB(order, connection);
         } catch (SQLException e) {
             throw new DataProcessingException("Insert to orders_products with order id  "

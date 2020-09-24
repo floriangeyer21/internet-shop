@@ -29,6 +29,7 @@ public class UserDaoJdbcImpl implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 User user = getUserFromResultSet(resultSet);
+                statement.close();
                 user.setRoles(getUserRolesFromDB(user, connection));
                 return Optional.of(user);
             }
@@ -55,6 +56,7 @@ public class UserDaoJdbcImpl implements UserDao {
                 newUser.setId(resultSet.getLong(1));
             }
             newUser.setRoles(user.getRoles());
+            statement.close();
             addRolesToUser(newUser, connection);
             return newUser;
         } catch (SQLException e) {
@@ -75,6 +77,7 @@ public class UserDaoJdbcImpl implements UserDao {
             statement.setLong(4, user.getId());
             int changedRows = statement.executeUpdate();
             user.getRoles().clear();
+            statement.close();
             addRolesToUser(user, connection);
             return user;
         } catch (SQLException e) {
@@ -93,6 +96,7 @@ public class UserDaoJdbcImpl implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 User user = getUserFromResultSet(resultSet);
+                statement.close();
                 user.setRoles(getUserRolesFromDB(user, connection));
                 return Optional.of(user);
             }
