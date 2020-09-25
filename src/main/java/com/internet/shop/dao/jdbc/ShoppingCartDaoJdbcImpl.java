@@ -111,7 +111,8 @@ public class ShoppingCartDaoJdbcImpl implements ShoppingCartDao {
             if (resultSet.next()) {
                 ShoppingCart shoppingCart = getShoppingCartFromResultSet(resultSet, connection);
                 statement.close();
-                shoppingCart.setProducts(getProductToShoppingCartFromDB(shoppingCart.getId(), connection));
+                shoppingCart.setProducts(getProductToShoppingCartFromDB(
+                        shoppingCart.getId(), connection));
                 return shoppingCarts;
             }
             return shoppingCarts;
