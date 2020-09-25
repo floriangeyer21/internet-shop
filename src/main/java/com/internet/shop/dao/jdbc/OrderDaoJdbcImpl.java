@@ -67,6 +67,7 @@ public class OrderDaoJdbcImpl implements OrderDao {
             statement.setLong(1, orderId);
             statement.executeUpdate();
             statement.close();
+            deleteProductsFromDB(orderId, connection);
             return addProductToOrderInDB(order, connection);
         } catch (SQLException e) {
             throw new DataProcessingException("Insert to orders_products with order id  "
@@ -190,5 +191,13 @@ public class OrderDaoJdbcImpl implements OrderDao {
                     + productId + " failed. ", e);
         }
         return new Product();
+    }
+
+    private void deleteProductsFromDB(Long orderId, Connection connection) throws SQLException {
+        String sql = "DELETE FROM orders_products WHERE order_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setLong(1, orderId);
+            statement.executeUpdate();
+        }
     }
 }
