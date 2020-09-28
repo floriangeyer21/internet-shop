@@ -170,9 +170,11 @@ public class UserDaoJdbcImpl implements UserDao {
         Long userId = user.getId();
         for (Role role : user.getRoles()) {
             try (PreparedStatement statement = connection.prepareStatement(query);) {
-                getRoleIdByName(role, connection);
+                Role.RoleName roleName = role.getRoleName();
+                Long roleId = getRoleIdByName(roleName, connection);
+                role.setId(roleId);
                 statement.setLong(1, userId);
-                statement.setLong(2, role.getId());
+                statement.setLong(2, roleId);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 throw new DataProcessingException("Insert to users_roles with user_id "
@@ -181,15 +183,15 @@ public class UserDaoJdbcImpl implements UserDao {
         }
     }
 
-    private void getRoleIdByName(Role role, Connection connection) {
+    private Long getRoleIdByName(Role.RoleName roleName, Connection connection) {
         String query = "SELECT role_id FROM roles WHERE role_name = ?";
-        Role.RoleName roleName = role.getRoleName();
         try (PreparedStatement statement = connection.prepareStatement(query);) {
             statement.setString(1, roleName.name());
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                role.setId(resultSet.getLong("role_id"));
+                return resultSet.getLong("role_id");
             }
+            throw new DataProcessingException("Cant get rode id by role name" + roleName.name());
         } catch (SQLException e) {
             throw new DataProcessingException("Getting role_id by role_name "
                     + roleName.name() + " failed. ", e);
