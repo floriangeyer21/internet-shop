@@ -1,3 +1,0 @@
-2020-09-28 19:47:35 DEBUG LoginController:38 - Create a userUser{id=30, name='admin', login='admin', password='345684'}
-2020-09-28 19:47:35 WARN  LoginController:39 - Create a userUser{id=30, name='admin', login='admin', password='345684'}
-2020-09-28 19:47:35 INFO  LoginController:40 - Create a userUser{id=30, name='admin', login='admin', password='345684'}
