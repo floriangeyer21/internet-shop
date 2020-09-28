@@ -1,13 +1,13 @@
 package com.internet.shop.util;
 
-
-import org.apache.log4j.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import org.apache.log4j.Logger;
 
 public class HashUtil {
     private static final Logger logger = Logger.getLogger(HashUtil.class);
+    private static final String HASH_ALGORITHM = "SHA-512";
 
     public static byte[] getSalt() {
         SecureRandom random = new SecureRandom();
@@ -19,7 +19,7 @@ public class HashUtil {
     public static String hashPassword(String password, byte[] salt) {
         StringBuilder hashPassword = new StringBuilder();
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+            MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM);
             messageDigest.update(salt);
             byte[] digest = messageDigest.digest(password.getBytes());
             for (Byte b : digest) {

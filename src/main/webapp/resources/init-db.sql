@@ -12,6 +12,7 @@ CREATE TABLE `internet_shop`.`products` (
   `name` VARCHAR(255) NOT NULL,
    `login` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
+    `salt` BINARY(16) NOT NULL,
  `deleted` BOOLEAN NOT NULL DEFAULT false,
  PRIMARY KEY (`user_id`));
 
