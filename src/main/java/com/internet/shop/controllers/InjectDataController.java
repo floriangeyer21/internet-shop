@@ -6,7 +6,6 @@ import com.internet.shop.model.User;
 import com.internet.shop.service.ProductService;
 import com.internet.shop.service.ShoppingCartService;
 import com.internet.shop.service.UserService;
-import com.internet.shop.util.HashUtil;
 import java.io.IOException;
 import java.util.Set;
 import javax.servlet.ServletException;
@@ -26,9 +25,7 @@ public class InjectDataController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        User admin = new User("admin", "admin");
-        admin.setSalt(HashUtil.getSalt());
-        admin.setPassword(HashUtil.hashPassword("346558", admin.getSalt()));
+        User admin = new User("admin", "admin", "346558");
         admin.setRoles(Set.of(Role.of("ADMIN")));
         userService.create(admin);
         req.getRequestDispatcher("/WEB-INF/views/injectData.jsp").forward(req, resp);

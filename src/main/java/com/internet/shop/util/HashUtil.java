@@ -1,5 +1,6 @@
 package com.internet.shop.util;
 
+import com.internet.shop.exceptions.NoAppropriateHashingAlgorithmException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -22,11 +23,12 @@ public class HashUtil {
             MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM);
             messageDigest.update(salt);
             byte[] digest = messageDigest.digest(password.getBytes());
-            for (Byte b : digest) {
-                hashPassword.append(String.format("%02x", b));
+            for (Byte curByte : digest) {
+                hashPassword.append(String.format("%02x", curByte));
             }
         } catch (NoSuchAlgorithmException e) {
             logger.error(e);
+            throw new NoAppropriateHashingAlgorithmException("Can't hashing password", e);
         }
         return hashPassword.toString();
     }
