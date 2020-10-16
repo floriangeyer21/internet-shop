@@ -1,5 +1,5 @@
 Internet shop project
-This webshop project was developed to get practice with Java Servlets, Tomcat, JDBC, and database interaction.
+This webshop project was developed to get practice with Java Servlets, Tomcat, JDBC, CSS, and database interaction.
 
 In this project I implemented au
 
