@@ -28,3 +28,44 @@ This project was tested with the following software:
 Intellij IDEA Ultimate Edition
 Apache Tomcat 9.0.37
 MySQL 8.0.20
+
+
+
+internet-shop
+Internet-shop with basic operations.
+
+In this project used N-tier architecture with DB layer, DAO layer, Service layer, Controllers layer and View layer.
+Project was developed according to SOLID principles with authorization and authentication by RBAC filter strategy.
+
+One user can have multiple roles.
+
+No role:
+Registration
+Authorization
+View products
+User:
+View products
+Add / remove products to shopping cart
+Make an order
+Logout
+Admin:
+View / delete users
+View / add / remove products
+View / delete user orders.
+Logout
+Technologies used
+backend: Java, Servlets, Tomcat, JDBC
+frontend: HTML, CSS, Bootstrap, JSP, JSTL
+database: MySQL
+
+To start the project you need:
+Download and install the JDK
+Download and install servlet container (for example Apache Tomcat)
+Download and install MySQL Server
+Setup new connection with
+user: "your username"
+password: "your password"
+url: jdbc:mysql://"your host name":"your port"/"your name db"?useUnicode=true&serverTimezone=UTC
+Create schema internet_shop
+Create tables using commands from init_db.sql under the path src/main/resources/
+Available for admin (login: admin, password: admin)
