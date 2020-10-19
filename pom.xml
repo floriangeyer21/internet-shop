@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mate-academy-git</groupId>
+    <groupId>com.internet-shop</groupId>
     <artifactId>internet-shop</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -26,6 +26,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
