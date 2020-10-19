@@ -20,7 +20,7 @@ If you want to enter as Admin, there's address /injectData which will add new us
 
 ####login: admin
 
-###password: 346558
+####password: 346558
 
 But first of all, there's file init_db.sql which holds sql script for creating appropriate DB. So run this code in MySQL on your machine first. Also, your database should have UTC time zone.
 
